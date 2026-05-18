@@ -21,6 +21,11 @@ app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/ai', aiRoutes);
 
+// Root route for health check / browser visit
+app.get('/', (req, res) => {
+    res.send('AI HR Analytics Backend is running successfully! 🚀');
+});
+
 // Database Connection
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
